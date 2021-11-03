@@ -21,13 +21,13 @@ namespace DIO.Bank
                         InserirConta();
                         break;
                     case "3":
-                        //Transferir();
+                        TransferirConta();
                         break;
                     case "4":
-                        //Sacar();
+                        SacarConta();
                         break;
                     case "5":
-                        //Depositar();
+                        DepositarConta();
                         break;
                     case "C":
                         Console.Clear();
@@ -42,6 +42,43 @@ namespace DIO.Bank
 
             Console.WriteLine("Obrigado por utilziar os nossos serviços!");
             Console.WriteLine();
+
+        }
+
+        private static void TransferirConta()
+        {
+           Console.WriteLine("Digite o número da conta origem: ");
+           int indiceContaOrigem = int.Parse(Console.ReadLine());
+
+           Console.WriteLine("Digite o número da conta de destino: ");
+           int indiceContaDestino = int.Parse(Console.ReadLine());
+
+           Console.WriteLine("Informe o valor para a transferência: ");
+           double valorTransferencia = double.Parse(Console.ReadLine());
+
+           listContas[indiceContaOrigem].Transferir(valorTransferencia, listContas[indiceContaDestino]);
+        }
+
+        private static void DepositarConta()
+        {
+            Console.WriteLine("Digite o número da conta: ");
+            int indiceConta = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o valor a ser Depositado: ");
+            double valorDeposito = double.Parse(Console.ReadLine());
+
+            listContas[indiceConta].Depositar(valorDeposito);
+        }
+
+        private static void SacarConta()
+        {
+            Console.WriteLine("Digite o número da conta: ");
+            int indiceConta = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o valor a ser sacado: ");
+            double valorSaque = double.Parse(Console.ReadLine());
+
+            listContas[indiceConta].Sacar(valorSaque);
 
         }
 
